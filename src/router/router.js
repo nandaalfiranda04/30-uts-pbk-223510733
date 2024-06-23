@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AboutView from '../components/post.vue';
+import AboutView from '../components/Post.vue';
 
 const routes = [
   {

@@ -1,27 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Foto from '../components/Album.vue'
+import AlbumView from '../components/PhotoAlbum.vue'
+import HomeView from '../components/Post.vue'
+import Todos from '../components/Todos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/post',
+      name: 'post',
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/',
+      redirect: '/todos' // Pengalihan rute default ke /todos
     },
     {
-      path: '/helloworld',
-      name: 'helloworld',
-      component: HelloWorld
+      path: '/todos',
+      name: 'todos',
+      component: Todos
     },
+    {
+      path: '/album/:id',
+      name: 'album',
+      component: AlbumView,
+    },
+    {
+      path: '/foto',
+      name: 'foto',
+      component: Foto
+    }
   ]
 })
 
